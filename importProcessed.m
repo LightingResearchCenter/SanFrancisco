@@ -1,4 +1,4 @@
-function [sn,Time,lux,CLA1,CS,Activity,x,y] = importProcessed(filename, startRow, endRow)
+function [Time,CS,Activity] = importProcessed(filename, startRow, endRow)
 %IMPORTPROCESSED Import numeric data from a text file as column vectors.
 %   [TIME,LUX,CLA1,CS,ACTIVITY,X,Y] = importProcessed(FILENAME) Reads data from
 %   text file FILENAME for the default selection.
@@ -61,14 +61,12 @@ fclose(fileID);
 %% Allocate imported array to column variable names
 TimeStr = dataArray{:, 1};
 Time = datenum(TimeStr,'HH:MM:SS mm/dd/yy');
-lux = dataArray{:, 2};
-CLA1 = dataArray{:, 3};
+% lux = dataArray{:, 2};
+% CLA = dataArray{:, 3};
 CS = dataArray{:, 4};
 Activity = dataArray{:, 5};
-x = dataArray{:, 6};
-y = dataArray{:, 7};
-
-sn = str2double(regexprep(filename,'(\d.)\D.','$1'));
+% x = dataArray{:, 6};
+% y = dataArray{:, 7};
 
 end
 
