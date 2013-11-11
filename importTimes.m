@@ -1,4 +1,4 @@
-function [shiftStart,shiftEnd] = importSchedule(filename, startRow, endRow)
+function [time1,time2] = importTimes(filename, startRow, endRow)
 %IMPORTSCHEDULE Import numeric data from a text file as column vectors.
 %   [SHIFTSTART,DELIM,SHIFTEND] = importSchedule(FILENAME) Reads data from text
 %   file FILENAME for the default selection.
@@ -52,10 +52,9 @@ fclose(fileID);
 % script.
 
 %% Allocate imported array to column variable names
-shiftStartStr = dataArray{:, 1};
-% delim = dataArray{:, 2};
-shiftEndStr = dataArray{:, 3};
+time1Str = dataArray{:, 1};
+time2Str = dataArray{:, 3};
 
-shiftStart = datenum(shiftStartStr,'mm/dd/yyyy HH:MM');
-shiftEnd = datenum(shiftEndStr,'mm/dd/yyyy HH:MM');
+time1 = datenum(time1Str,'mm/dd/yyyy HH:MM');
+time2 = datenum(time2Str,'mm/dd/yyyy HH:MM');
 

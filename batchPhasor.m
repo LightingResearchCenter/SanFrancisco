@@ -35,7 +35,14 @@ for i1 = 1:numel(sn)
     % Import shift schedule
     schedulePath = fullfile(scheduleDir,[num2str(sn(i1)),'.txt']);
     [subject(i1).shiftStart,subject(i1).shiftEnd] = ...
-        importSchedule(schedulePath);
+        importTimes(schedulePath);
+    
+    %% Process and analyze data
+    % Apply a gaussian filter to CS and Actvity
+    subject(i1).filtCS = gaussian(subject(i1).CS, 4, 1/180);
+    subject(i1).filtActivity = gaussian(subject(i1).Activity, 4, 1/180);
+    
+    
 end
 
 end
