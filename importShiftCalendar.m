@@ -63,3 +63,5 @@ nightShiftEnd = data(:,5);
 transitionStart = data(:,6);
 transitionEnd = data(:,7);
 
+end
+
