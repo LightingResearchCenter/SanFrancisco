@@ -13,7 +13,7 @@ id = fscanf(f, '%d', 1)
 fclose(f);
 
 %organize raw file
-dummy = tempname;
+dummy = 'tempname.txt';
 organize_raw_dimesimeter_file(path, dummy);
 
 %process organized file
@@ -49,7 +49,7 @@ lux = lux(q);
 
 %work schedule
 work = zeros(length(time), 1);
-path = ['P:\hamner\miscellaneous MATLAB\Apr2012\San Francisco dimesimeters\work schedules\', FileName];
+path = ['C:\Users\jonesg5\Desktop\SanFrancisco\workSchedules\', FileName];
 f = fopen(path);
 while(~feof(f))
     start = [fscanf(f, '%s', 1), ' ', fscanf(f, '%s', 1)];
@@ -66,7 +66,7 @@ end
 
 %omit
 omit = zeros(length(time), 1);
-path = ['P:\hamner\miscellaneous MATLAB\Apr2012\San Francisco dimesimeters\omit times\', FileName];
+path = ['C:\Users\jonesg5\Desktop\SanFrancisco\omitTimes\', FileName];
 f = fopen(path);
 while(~feof(f))
     start = [fscanf(f, '%s', 1), ' ', fscanf(f, '%s', 1)];
@@ -157,7 +157,7 @@ h = area(180/86400:180/86400:1, ta2)
 set(h, 'facecolor', [0 0 0]);
 hold on
 h = area(180/86400:180/86400:1, tc2)
-datetick2('x', 'HH:MM')
+datetick('x', 'HH:MM')
 set(h, 'facecolor', [1 .5 .5]);
 set(gca, 'fontsize', 18)
 xlabel('\fontsize{18}Time of Day')

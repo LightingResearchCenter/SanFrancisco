@@ -23,10 +23,10 @@ organize_raw_dimesimeter_file(path, dummy);
 time = time/86400;
 CS = CSCalc_postBerlin_12Aug2011(CLA);
 time = time - (3/24);
-activity(find(activity > 1)) = 1;
+activity(activity > 1) = 1;
 
 %pull in shift info
-path = ['P:\hamner\miscellaneous MATLAB\Apr2012\San Francisco dimesimeters\shift times\', shift, '\', FileName];
+path = ['C:\Users\jonesg5\Desktop\SanFrancisco\shiftDates\', shift, '\', FileName];
 f = fopen(path);
 start = [fscanf(f, '%s', 1), ' ', fscanf(f, '%s', 1)];
 fscanf(f, '%s', 1);
@@ -43,7 +43,7 @@ CS = CS(q);
 
 %work schedule
 work = zeros(length(time), 1);
-path = ['P:\hamner\miscellaneous MATLAB\Apr2012\San Francisco dimesimeters\work schedules\', FileName];
+path = ['C:\Users\jonesg5\Desktop\SanFrancisco\workSchedules\', FileName];
 f = fopen(path);
 while(~feof(f))
     start = [fscanf(f, '%s', 1), ' ', fscanf(f, '%s', 1)];
@@ -60,7 +60,7 @@ end
 
 %omit
 omit = zeros(length(time), 1);
-path = ['P:\hamner\miscellaneous MATLAB\Apr2012\San Francisco dimesimeters\omit times\', FileName];
+path = ['C:\Users\jonesg5\Desktop\SanFrancisco\omitTimes\', FileName];
 f = fopen(path);
 while(~feof(f))
     start = [fscanf(f, '%s', 1), ' ', fscanf(f, '%s', 1)];
@@ -89,7 +89,7 @@ activity = gaussian(activity, 4, 1/180);
 CS = gaussian(CS, 4, 1/180);
 
 figure(1)
-h = area(t, work)
+h = area(t, work);
 set(h, 'facecolor', [.5 1 0])
 hold on
 h = area(t, omit);
@@ -152,7 +152,7 @@ h = area(180/86400:180/86400:1, ta2)
 set(h, 'facecolor', [0 0 0]);
 hold on
 h = area(180/86400:180/86400:1, tc2)
-datetick2('x', 'HH:MM')
+datetick('x', 'HH:MM')
 set(h, 'facecolor', [1 .5 .5]);
 set(gca, 'fontsize', 18)
 xlabel('\fontsize{18}Time of Day')

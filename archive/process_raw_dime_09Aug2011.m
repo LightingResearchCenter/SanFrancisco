@@ -64,7 +64,7 @@ for i = 1:length(red)
             blue(i) = [];
             activity(i) = [];
             i = i - 1;
-            total = total - 1
+            total = total - 1;
         end
        
         resets = resets + 1;        %keep track of number of resets
