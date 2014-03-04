@@ -5,7 +5,7 @@ function batchPhasor
 addpath('archive');
 
 %% Set input file paths
-projectDir = 'C:\Users\jonesg5\Desktop\SanFrancisco';
+projectDir = '\\root\Public\jonesg5\SanFrancisco';
 dataDir = fullfile(projectDir,'data');
 scheduleDir = fullfile(projectDir,'workSchedules');
 omitDir = fullfile(projectDir,'omitTimes');
